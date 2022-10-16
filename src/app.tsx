@@ -1,6 +1,13 @@
 import React from 'react'
+import { InputNode } from './types'
 
-function App() {
+interface ReactFormBuilderProps {
+  InputNodes: InputNode[]
+}
+
+const ReactFormBuilder: React.FC<ReactFormBuilderProps> = ({InputNodes}) => {
+  console.log(InputNodes)
+
   return (
     <div className="App">
       react form builder
@@ -8,4 +15,4 @@ function App() {
   )
 }
 
-export default App
+export default ReactFormBuilder

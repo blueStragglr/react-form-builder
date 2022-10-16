@@ -4,6 +4,6 @@ import './global.css'
 import App from './app'
 
 ReactDOM.render(
-  <App/>,
+  <App InputNodes={[]}/>,
 document.getElementById('app-root'),
 )
