@@ -5,7 +5,7 @@
   "main": "src/index.tsx",
   "scripts": {
     "start": "webpack serve --port 3000",
-    "bundle": "rollup -c"
+    "bundle": "rimraf dist && rollup -c"
   },
   "repository": "https://github.com/blueStragglr/react-form-builder",
   "author": "blueStragglr",
@@ -22,6 +22,7 @@
     "css-loader": "^6.7.1",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.1",
+    "rimraf": "^3.0.2",
     "rollup": "^3.2.1",
     "rollup-plugin-typescript2": "^0.34.1",
     "ts-loader": "^9.4.1",

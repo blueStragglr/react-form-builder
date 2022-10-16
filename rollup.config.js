@@ -3,11 +3,14 @@ import typescript from 'rollup-plugin-typescript2';
 export default {
   input: './src/app.tsx',
   output: {
-    file: './dist/bundle.tsx'
+    dir: 'dist',
+    format: 'es'
   },
   plugins: [
     typescript({
-      tsconfig: 'tsconfig.json'
+      tsconfig: 'tsconfig.json',
+      exclude: 'src/index.tsx'
     })
-  ]
+  ],
+  external: ['react', 'react-dom', 'typescript']
 }
