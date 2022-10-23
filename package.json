@@ -2,7 +2,7 @@
   "name": "react-form-builder",
   "version": "1.0.0",
   "description": "form UI components generator with React 18",
-  "main": "src/index.tsx",
+  "main": "src/app.tsx",
   "scripts": {
     "start": "webpack serve --port 3000",
     "bundle": "rimraf dist && rollup -c"
