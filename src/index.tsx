@@ -1,39 +1,47 @@
 import React from 'react'
 import './global.css'
-import App from './app'
 import { InputNode } from './types'
 import { createRoot } from 'react-dom/client'
+import ReactFormBuilder from './app'
 
 const inputNodes: InputNode[] = [
   {
     key: 'name',
-    type: 'text'
+    type: 'text',
+    initialValue: 'blue'
   },
   {
     key: 'age',
     type: 'number'
   },
   {
-    key: 'about',
-    type: 'longText',
+    key: 'favorite number',
+    type: 'number',
+    initialValue: 42
   },
+  {
+    key: 'about',
+    type: 'longText'
+  }
 ]
 
+let $REACT_ROOT = document.getElementById('app-root')
 
-let $REACT_ROOT = document.getElementById("app-root");
-
-if ($REACT_ROOT === null){
-  console.log('null!')
+if ($REACT_ROOT === null) {
   $REACT_ROOT = document.createElement('div')
-  $REACT_ROOT.setAttribute("id", "app-root");
-  console.log($REACT_ROOT)
+  $REACT_ROOT.setAttribute('id', 'app-root')
 }
 
-const root = createRoot($REACT_ROOT);
+const root = createRoot($REACT_ROOT)
 
 root.render(
-  <App
-    InputNodes={inputNodes}
-    onSubmit={ (data) => { console.log(data) } }
+  <ReactFormBuilder
+    InputNodes={ inputNodes }
+    onSubmit={ (data) => {
+      console.log('submit>> ', data)
+    } }
+    onChange={ (data) => {
+      console.log('update>> ', data)
+    } }
   />
 )
