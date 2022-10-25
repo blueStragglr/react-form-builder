@@ -2,6 +2,7 @@ export type InputType = 'text' | 'number' | 'longText'
 
 export interface InputBase {
   key: string
+  label: string
   type: InputType
 }
 

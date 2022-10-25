@@ -3,6 +3,7 @@ import { InputNode } from './types'
 import TextInput from './Inputs/TextInput'
 import NumberInput from './Inputs/NumberInput'
 import LongTextInput from './Inputs/LongTextInput'
+import InputNodeWrapper from './node/InputNodeWrapper'
 
 interface ReactFormBuilderProps {
   InputNodes: InputNode[]
@@ -48,23 +49,29 @@ const ReactFormBuilder: React.FC<ReactFormBuilderProps> = ({
         {InputNodes.map((inputNode: InputNode) => {
           switch (inputNode.type) {
             case 'text':
-              return <TextInput
+              return <InputNodeWrapper nodeLabel={inputNode.label}>
+              <TextInput
                 initialValue={formData.current[inputNode.key]}
                 key={inputNode.key}
                 nodeKey={inputNode.key}
                 nodeUpdateHandler={nodeUpdateHandler}/>
+              </InputNodeWrapper>
             case 'number':
-              return <NumberInput
+              return <InputNodeWrapper nodeLabel={inputNode.label}>
+              <NumberInput
                 initialValue={formData.current[inputNode.key]}
                 key={inputNode.key}
                 nodeKey={inputNode.key}
                 nodeUpdateHandler={nodeUpdateHandler}/>
+              </InputNodeWrapper>
             case 'longText':
-              return <LongTextInput
+              return <InputNodeWrapper nodeLabel={inputNode.label}>
+                <LongTextInput
                 initialValue={formData.current[inputNode.key]}
                 key={inputNode.key}
                 nodeKey={inputNode.key}
                 nodeUpdateHandler={nodeUpdateHandler}/>
+              </InputNodeWrapper>
             default:
               return <React.Fragment>Invalid input type. ({inputNode})</React.Fragment>
           }
